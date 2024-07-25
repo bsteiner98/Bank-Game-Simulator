@@ -61,6 +61,7 @@ class game:
             )
 
             if rollNumber >= 3:
+                nextRoundPlayers = remainingPlayers.copy()
                 for player in remainingPlayers:
                     playerDecision = player.executeStrategy(rollNumber, roundScore)
                     # Player chooses to bank
@@ -69,7 +70,8 @@ class game:
                             f"A player is banking! rollCountStrat: {player.rollCountStrat}, scoreCountStrat: {player.scoreCountStrat}"
                         )
                         player.gameScore += roundScore
-                        remainingPlayers.remove(player)
+                        nextRoundPlayers.remove(player)
+                remainingPlayers = nextRoundPlayers
 
             input(f"Finished roll: {rollNumber}. Press Enter to continue...\n\n")
             rollNumber += 1
@@ -96,20 +98,20 @@ class game:
 
 def initializePlayers():
     playerList = []
-    # Always banks after 3rd roll
-    playerList.append(player(3, None))
+    # # Always banks after 3rd roll
+    # playerList.append(player(3, None))
 
-    # Always banks after 4th roll
-    playerList.append(player(4, None))
+    # # Always banks after 4th roll
+    # playerList.append(player(4, None))
 
-    # Always banks after 5th roll
-    playerList.append(player(5, None))
+    # # Always banks after 5th roll
+    # playerList.append(player(5, None))
 
-    # Always banks after 6th roll
-    playerList.append(player(6, None))
+    # # Always banks after 6th roll
+    # playerList.append(player(6, None))
 
-    # Always banks after 7th roll
-    playerList.append(player(7, None))
+    # # Always banks after 7th roll
+    # playerList.append(player(7, None))
 
     # Always banks after 8th roll
     playerList.append(player(8, None))
@@ -140,6 +142,57 @@ def initializePlayers():
 
     # Banks as soon as score is >= 400
     playerList.append(player(None, 400))
+
+    # Banks as soon as score is >= 500
+    playerList.append(player(None, 500))
+
+    # Banks as soon as score is >= 600
+    playerList.append(player(None, 600))
+
+    # Banks as soon as score is >= 700
+    playerList.append(player(None, 700))
+
+    # Banks as soon as score is >= 800
+    playerList.append(player(None, 800))
+
+    # Banks as soon as score is >= 900
+    playerList.append(player(None, 900))
+
+    # Banks as soon as score is >= 1000
+    playerList.append(player(None, 1000))
+
+    # Banks as soon as score is >= 2000
+    playerList.append(player(None, 2000))
+
+    # Banks as soon as score is >= 3000
+    playerList.append(player(None, 3000))
+
+    # Banks as soon as score is >= 4000
+    playerList.append(player(None, 4000))
+
+    # Banks as soon as score is >= 5000
+    playerList.append(player(None, 5000))
+
+    # Banks as soon as score is >= 8000
+    playerList.append(player(None, 8000))
+
+    # Banks as soon as score is >= 10000
+    playerList.append(player(None, 10000))
+
+    # Banks as soon as score is >= 12000
+    playerList.append(player(None, 12000))
+
+    # Banks as soon as score is >= 14000
+    playerList.append(player(None, 14000))
+
+    # Banks as soon as score is >= 16000
+    playerList.append(player(None, 16000))
+
+    # Banks as soon as score is >= 18000
+    playerList.append(player(None, 18000))
+
+    # Banks as soon as score is >= 20000
+    playerList.append(player(None, 20000))
 
     return playerList
 
